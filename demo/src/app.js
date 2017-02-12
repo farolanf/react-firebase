@@ -38,8 +38,8 @@ export default React.createClass({
 
   render() {
     const { items, itemsObj } = this.state;
-    console.log(items);
-    console.log(itemsObj);
+    console.log('items', items);
+    console.log('itemsObj', itemsObj);
     return (
       <div className="container">
         <h1>react-firebase Demo App</h1>
