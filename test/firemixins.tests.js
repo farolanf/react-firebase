@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import chai from 'chai';
+import { expect } from 'chai';
 import sinon from 'sinon';
 import firemixins from '../lib/firemixins';
 
@@ -44,7 +45,7 @@ describe('firemixins database', () => {
     Object.defineProperty(this, 'key', { value: key });
 
     this.hasChildren = function () {
-      return Object.keys(obj).length > 0;
+      return obj && Object.keys(obj).length > 0;
     };
 
     this.val = function() {
@@ -120,4 +121,24 @@ describe('firemixins database', () => {
     item[1].should.deep.equal(jan);
   });  
 
+  it("handles null object", () => {
+    component.bindAsObject(ref, 'users');
+    const callback = ref.on.args[0][1];
+    callback(new Snapshot('users', null));
+    component.state.should.have.property('users');
+    const item = component.state.users;
+    item.should.not.be.an.instanceof(Array);
+    item.should.deep.equal({ _key: 'users', _value: null });
+  });
+
+  it("handles null object in array", () => {
+    component.bindAsArray(ref, 'users');
+    const callback = ref.on.args[0][1];
+    callback(new Snapshot('users', null));
+    component.state.should.have.property('users');
+    const item = component.state.users;
+    item.should.be.an.instanceof(Array);
+    item.length.should.equal(1);
+    item[0].should.deep.equal({ _key: 'users', _value: null });
+  });
 });
