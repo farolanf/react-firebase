@@ -1,5 +1,5 @@
 {
-  "name": "react-firebase",
+  "name": "@farolan/react-firebase",
   "version": "0.1.0",
   "description": "Integrates firebase and react",
   "main": "index.js",
