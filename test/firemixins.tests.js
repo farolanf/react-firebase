@@ -131,14 +131,21 @@ describe('firemixins database', () => {
     item.should.deep.equal({ _key: 'users', _value: null });
   });
 
-  it("handles null object in array", () => {
+  it("handles empty array", () => {
+    component.bindAsArray(ref, 'users');
+    const callback = ref.on.args[0][1];
+    callback(new Snapshot('users', {}));
+    component.state.should.have.property('users');
+    const item = component.state.users;
+    item.should.be.an.instanceof(Array);
+    item.length.should.equal(0);
+  });
+
+  it("handles null array", () => {
     component.bindAsArray(ref, 'users');
     const callback = ref.on.args[0][1];
     callback(new Snapshot('users', null));
     component.state.should.have.property('users');
-    const item = component.state.users;
-    item.should.be.an.instanceof(Array);
-    item.length.should.equal(1);
-    item[0].should.deep.equal({ _key: 'users', _value: null });
+    expect(component.state.users).to.be.null;
   });
 });
