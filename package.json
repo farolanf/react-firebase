@@ -1,7 +1,7 @@
 {
   "name": "react-firebase",
   "version": "0.1.0",
-  "description": "Integrate firebase and react",
+  "description": "Integrates firebase and react",
   "main": "index.js",
   "scripts": {
     "demo": "webpack-dev-server --hot --hot-only --config demo/webpack.config.js",

@@ -1,4 +1,4 @@
-### react-firebase
+# react-firebase
 
 Integrates react and firebase.
 
