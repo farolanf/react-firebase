@@ -5,7 +5,7 @@ Integrates react and firebase.
 ## Installation
 
 ```bash
-npm i -S react-firebase
+npm i -S @farolan/react-firebase
 ```
 ## Usage
 
@@ -13,7 +13,7 @@ npm i -S react-firebase
 const firebase = require('firebase/app');
 require('firebase/database');
 
-const firemixins = require('react-firebase').firemixins;
+const firemixins = require('@farolan/react-firebase').firemixins;
 
 React.createClass({
 
