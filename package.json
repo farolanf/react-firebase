@@ -8,7 +8,7 @@
     "test": "mocha -w --require babel-register"
   },
   "author": "Farolan Faisal",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
