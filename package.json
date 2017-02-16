@@ -1,6 +1,6 @@
 {
   "name": "@farolan/react-firebase",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Integrates firebase and react",
   "main": "index.js",
   "scripts": {
